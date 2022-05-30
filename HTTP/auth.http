@@ -1,0 +1,30 @@
+@contentType = application/json
+@host = http://localhost:8080/v1
+
+###
+GET {{host}}/.well-known/jwks.json
+
+###
+GET {{host}}/auth/users
+
+###
+POST {{host}}/auth/register/password
+Content-Type: {{contentType}}
+
+{
+    "username": "staff",
+    "password": "12345"
+}
+
+###
+POST {{host}}/auth/login/password
+Content-Type: {{contentType}}
+
+{
+    "username": "kevinwong",
+    "password": "12345"
+}
+
+###
+POST {{host}}/auth/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzY5MTE4OGY1NTY1YTMyNTI3ZDlkZSIsInVzZXJuYW1lIjoia2V2aW53b25nIiwiaWF0IjoxNjUxOTQwNzQ3LCJleHAiOjMzMzU0MTc0OTQsImlzcyI6InBvaW50cG9pbnQifQ.hlua7v8qcAg3aw94L6wVdCiEh1qXK0HIUhHAxLq8BpE
